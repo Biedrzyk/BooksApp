@@ -28,5 +28,25 @@
     }
   }
   renderInBooks();
+  initActions();
+
+  const favoriteBooks = [];
+
+  function initActions () {
+
+    const booksElements = document.querySelector(select.containerOf.booksList);
+    const booksImage = booksElements.querySelectorAll('.book-image');
+
+    for (let img of booksImage) {
+      img.addEventListener('dbclick', function () {
+        event.preventDefault();
+        img.classList.add('favorite');
+        const bookId = getAttribute('data-id');
+        favoriteBooks.push(bookId);
+      });
+
+    }
+
+  }
 
 }
