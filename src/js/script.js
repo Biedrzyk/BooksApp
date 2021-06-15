@@ -54,19 +54,18 @@
         img.classList.add('favorite');
         const bookId = img.getAttribute('data-id');
         favoriteBooks.push(bookId);
+        console.log(favoriteBooks);
+        if(!img.classList.contains('favorite')) {
+          img.classList.add(classNames.books.favoriteBook);
+          favoriteBooks.push(bookId);
+   
+        } else {
+          favoriteBooks.splice(favoriteBooks.indexOf(bookId),1);
+          console.log(favoriteBooks);
+          img.classList.remove(classNames.books.favoriteBook);
+        }
       });
-      if(!img.classList.contains('favorite')) {
-        img.classList.add(classNames.books.favoriteBook);
-        const bookId = img.getAttribute('data-id');
-        favoriteBooks.push(bookId);
-      } else {
-        favoriteBooks.splice(favoriteBooks.indexOf(bookId), 1);
-        const bookId = img.getAttribute('data-id');
-        img.classList.remove(classNames.book.favoriteBook);
-      }
     }
   }
-
   initActions();
-
 }
