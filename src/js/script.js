@@ -17,7 +17,7 @@
 
   const classNames = {
     books: {
-      favoriteBook: 'favorite.books-list',
+      favoriteBook: 'favorite',
     }
   };
 
@@ -25,7 +25,7 @@
     bookTemplate: Handlebars.compile(document.querySelector(select.templateOf.bookTemplate).innerHTML),
   };
 
-  
+
   function renderInBooks() {
 
     for (let book of dataSource.books) {  /*loop for every element - from dataSource.books*/
@@ -43,7 +43,7 @@
 
   const favoriteBooks = [];
 
-  function initActions () {
+  function initActions() {
 
     const booksElements = document.querySelector(select.containerOf.booksList);
     const booksImage = booksElements.querySelectorAll('.book__image');
@@ -51,16 +51,13 @@
     for (let img of booksImage) {
       img.addEventListener('dblclick', function (event) {
         event.preventDefault();
-        img.classList.add('favorite');
         const bookId = img.getAttribute('data-id');
-        favoriteBooks.push(bookId);
         console.log(favoriteBooks);
-        if(!img.classList.contains('favorite')) {
+        if (!img.classList.contains(classNames.books.favoriteBook)) {
           img.classList.add(classNames.books.favoriteBook);
           favoriteBooks.push(bookId);
-   
         } else {
-          favoriteBooks.splice(favoriteBooks.indexOf(bookId),1);
+          favoriteBooks.splice(favoriteBooks.indexOf(bookId), 1);
           console.log(favoriteBooks);
           img.classList.remove(classNames.books.favoriteBook);
         }
