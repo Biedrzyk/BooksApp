@@ -26,10 +26,18 @@
     bookTemplate: Handlebars.compile(document.querySelector(select.templateOf.bookTemplate).innerHTML),
   };
 
-
+class BookList {
   function renderInBooks() { //  zadanie 1
 
     for (let book of dataSource.books) {  /*loop for every element - from dataSource.books*/
+
+      const ratingBcg = determineRatingBgc(book.rating);
+
+      const ratingWidth = ratingBcg * 10;
+
+      book.ratingBgc = ratingBcg;
+
+      book.ratingWidth = ratingWidth;
 
       const generatedHTML = templates.bookTemplate(book); /* generate HTML from the template and from data of the book */
 
@@ -103,7 +111,13 @@
         }
       }
     }
-    function determineRatingBgc(rating) {
+
+  }
+  initActions();
+
+
+  function determineRatingBgc(rating) {
+    if (rating < 6) {
       return 'linear-gradient(to bottom, #b4df5b 0%,#b4df5b 100%)';
     } else if (rating > 6 && rating <= 8) {
       return 'linear-gradient(to bottom, #b4df5b 0%,#b4df5b 100%)';
@@ -112,10 +126,7 @@
     } else if (rating > 9) {
       return 'linear-gradient(to bottom, #ff0084 0%,#ff0084 100%)';
     }
-
-
   }
 }
-initActions();
+const app = new BooksList();
 }
-
