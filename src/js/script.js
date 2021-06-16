@@ -26,7 +26,7 @@
   };
 
 
-  function renderInBooks() {
+  function renderInBooks() { //  zadanie 1
 
     for (let book of dataSource.books) {  /*loop for every element - from dataSource.books*/
 
@@ -54,7 +54,7 @@
       img.addEventListener('dblclick', function (event) {
         event.preventDefault();
         const img = event.target.offsetParent;    //zadanie 4
-        const bookId = img.getAttribute('data-id');     //zadanie 3
+        const bookId = img.getAttribute('data-id');     //zadanie 2 i 3
         console.log(favoriteBooks);
         if (!img.classList.contains(classNames.books.favoriteBook)) {
           img.classList.add(classNames.books.favoriteBook);
@@ -67,7 +67,7 @@
       });
     }
 
-    searchingFilter.addEventListener('change', function (event) {
+    searchingFilter.addEventListener('change', function (event) {     //zadanie 5.1
       event.preventDefault();
 
       if (event.target.tagName == 'INPUT' && event.target.type == 'checkbox' && event.target.name == 'filter') {
@@ -79,8 +79,25 @@
           console.log('odznaczono', filters);
         }
       }
+      filterBooks();
     });
   }
   initActions();
+}
+
+function filterBooks() {
+
+  for(let oneBook of dataSource.books) {
+    let shouldBeHidden = false;
+    for (let oneFilter of filters) {
+      if(!book.details[filter]) {
+        shouldBeHidden = true;
+        break;
+      }
+    }
+    if(shouldBe )
+
+  }
+
 }
 
