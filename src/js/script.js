@@ -81,23 +81,27 @@
       }
       filterBooks();
     });
-  }
-  initActions();
-}
 
-function filterBooks() {
+    function filterBooks() {
 
-  for(let oneBook of dataSource.books) {
-    let shouldBeHidden = false;
-    for (let oneFilter of filters) {
-      if(!book.details[filter]) {
-        shouldBeHidden = true;
-        break;
+      for (let oneBook of dataSource.books) {     //    we are moving through the books
+        let shouldBeHidden = false;               //    checking if we need to hide cover of the book
+        for (let oneFilter of filters) {          //    checking if the book is for adults or non-fiction and should be grayed
+          if (!oneBook.details[oneFilter]) {
+            shouldBeHidden = true;
+            break;
+          }
+        }
+        if (shouldBeHidden == true) {
+          const bookChanges = document.querySelector('.book__image[data - id= "'  + oneBook.id + '"]');
+          bookChanges.classList.add('hidden');
+        } else {
+          const bookChanges = document.querySelector('.book__image[data - id= "'  + oneBook.id + '"]');
+          bookChanges.classList.remove('hidden');
+        }
       }
     }
-    if(shouldBe )
-
   }
-
+  initActions();
 }
 
