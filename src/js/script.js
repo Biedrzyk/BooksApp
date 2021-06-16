@@ -42,6 +42,7 @@
   renderInBooks();
 
   const favoriteBooks = [];
+  const filters = [];
 
   function initActions() {
 
@@ -67,3 +68,4 @@
   }
   initActions();
 }
+
