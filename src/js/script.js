@@ -43,6 +43,7 @@
 
   const favoriteBooks = [];
   const filters = [];
+  const searchingFilter = document.querySelector('.filters');
 
   function initActions() {
 
@@ -65,6 +66,20 @@
         }
       });
     }
+
+    searchingFilter.addEventListener('change', function (event) {
+      event.preventDefault();
+
+      if (event.target.tagName == 'INPUT' && event.target.type == 'checkbox' && event.target.name == 'filter') {
+        if (event.target.checked) {
+          filters.push(event.target.value);
+          console.log('co jest zaznaczone?', filters);
+        } else {
+          filters.splice(filters.indexOf(event.target.value));
+          console.log('odznaczono', filters);
+        }
+      }
+    });
   }
   initActions();
 }
