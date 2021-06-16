@@ -93,7 +93,8 @@
           }
         }
 
-        const bookChanges = document.querySelector('book__image[data-id= "'  + oneBook.id + '"]');
+        const bookChanges = document.querySelector('.book__image[data-id= "'  + oneBook.id + '"]');
+        console.log('bookChanges', bookChanges);
         if (shouldBeHidden == true) {
           bookChanges.classList.add('hidden');
         } else {
