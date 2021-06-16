@@ -94,7 +94,7 @@
           }
         }
 
-        const bookChanges = document.querySelector('.book__image[data-id= "'  + oneBook.id + '"]');
+        const bookChanges = document.querySelector('.book__image[data-id= "' + oneBook.id + '"]');
         console.log('bookChanges', bookChanges);
         if (shouldBeHidden == true) {
           bookChanges.classList.add('hidden');
@@ -103,7 +103,19 @@
         }
       }
     }
+    function determineRatingBgc(rating) {
+      return 'linear-gradient(to bottom, #b4df5b 0%,#b4df5b 100%)';
+    } else if (rating > 6 && rating <= 8) {
+      return 'linear-gradient(to bottom, #b4df5b 0%,#b4df5b 100%)';
+    } else if (rating > 8 && rating <= 9) {
+      return 'linear-gradient(to bottom, #299a0b 0%, #299a0b 100%)';
+    } else if (rating > 9) {
+      return 'linear-gradient(to bottom, #ff0084 0%,#ff0084 100%)';
+    }
+
+
   }
-  initActions();
+}
+initActions();
 }
 
