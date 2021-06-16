@@ -18,6 +18,7 @@
   const classNames = {
     books: {
       favoriteBook: 'favorite',
+      rating: 'book__rating__fill',
     }
   };
 
